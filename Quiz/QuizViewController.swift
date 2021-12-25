@@ -15,8 +15,8 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var answerButton3: UIButton!
     @IBOutlet weak var answerButton4: UIButton!
-    @IBOutlet weak var judeImageView: UIImageView!
-
+    @IBOutlet weak var back_button: UIButton!
+    
     var bannerView: GADBannerView!
     var csvArray:[String] = []
     var quizArray:[String] = []
@@ -61,31 +61,6 @@ class QuizViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let scoreVC = segue.destination as! ScoreViewController
         scoreVC.correct = correctCount
-    }
-    
-    @IBAction func btnAction(sender: UIButton){
-        if sender.tag == Int(quizArray[1]){
-            correctCount += 1
-            print("正解")
-            judeImageView.image = UIImage(named: "correct")
-        } else {
-            print("不正解")
-            judeImageView.image = UIImage(named: "incorrect")
-        }
-        print("スコア:\(correctCount)")
-        judeImageView.isHidden = false
-        answerButton1.isEnabled = false
-        answerButton2.isEnabled = false
-        answerButton3.isEnabled = false
-        answerButton4.isEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.judeImageView.isHidden = true
-            self.answerButton1.isEnabled = true
-            self.answerButton2.isEnabled = true
-            self.answerButton3.isEnabled = true
-            self.answerButton4.isEnabled = true
-            self.nextQuiz()
-        }
     }
         
     func nextQuiz(){
@@ -135,5 +110,9 @@ class QuizViewController: UIViewController {
                                 multiplier: 1,
                                 constant: 0)
             ])
+    }
+    
+    @IBAction func back_button(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
     }
 }

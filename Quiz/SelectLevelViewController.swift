@@ -11,6 +11,7 @@ class SelectLevelViewController: UIViewController {
     @IBOutlet weak var level1Button: UIButton!
     @IBOutlet weak var level2Button: UIButton!
     @IBOutlet weak var level3Button: UIButton!
+    @IBOutlet weak var buck_button: UIButton!
     
     var selectTag = 0
 
@@ -38,15 +39,7 @@ class SelectLevelViewController: UIViewController {
         performSegue(withIdentifier: "toQuizVC", sender: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func buck_button(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
     }
-    */
-
 }
