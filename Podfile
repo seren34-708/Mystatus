@@ -5,6 +5,10 @@ target 'Quiz' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  # 追加
+  pod 'FSCalendar', :git=> 'https://github.com/WenchaoD/FSCalendar'
+  pod 'CalculateCalendarLogic'
+
   # Pods for Quiz
   pod 'Google-Mobile-Ads-SDK'
   platform :ios, '15.0'
