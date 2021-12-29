@@ -41,7 +41,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="ZBj-UE-9hm" kind="presentation" id="mLB-Zd-Rfc"/>
+                                    <segue destination="ZBj-UE-9hm" kind="presentation" identifier="toDate" id="mLB-Zd-Rfc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0T-pA-eMq">
@@ -74,6 +74,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1275.3846153846152" y="130.09478672985782"/>
+        </scene>
+        <!--Input View Controller-->
+        <scene sceneID="0XP-q7-gHY">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="or3-an-quY" customClass="InputViewController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J2H-Om-Xri">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CC-Ve-wTd">
+                                <rect key="frame" x="67" y="148" width="81" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="戻る">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="HiraginoSans-W6"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButton:" destination="or3-an-quY" eventType="touchUpInside" id="FVX-Dt-ZZl"/>
+                                    <action selector="back_button:" destination="lyZ-3A-hbC" eventType="touchUpInside" id="A3g-8f-66e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="52q-gP-elA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GMD-Ok-JAY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="503"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="VQU-8K-cCx">
@@ -115,14 +153,14 @@
                         <color key="backgroundColor" red="0.792156862745098" green="0.91764705882352937" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="back_button" destination="H0L-jZ-yj1" id="pig-oj-jOQ"/>
+                        <outlet property="back_button" destination="H0L-jZ-yj1" id="3M4-yR-5DH"/>
                         <outlet property="quizNumberLabel" destination="Ilt-0q-Y1M" id="4wG-y5-YuF"/>
                         <segue destination="Jv3-kY-Bbm" kind="presentation" identifier="toScoreVC" id="nHU-3n-fws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmk-YB-CQj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197" y="503"/>
+            <point key="canvasLocation" x="798" y="503"/>
         </scene>
         <!--Calender View Controller-->
         <scene sceneID="qXv-wN-RTJ">
@@ -160,8 +198,36 @@
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="buck_button:" destination="u8E-85-YwZ" eventType="touchUpInside" id="EbV-Az-xtY"/>
+                                    <action selector="buckButton:" destination="u8E-85-YwZ" eventType="touchUpInside" id="u4W-ZF-AiB"/>
                                     <action selector="buck_button:" destination="ZBj-UE-9hm" eventType="touchUpInside" id="apq-Yy-Zrm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waq-bj-hOL">
+                                <rect key="frame" x="72" y="646" width="150" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8z-V6-Um8">
+                                <rect key="frame" x="236" y="120" width="96" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="今日">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="HiraginoSans-W7"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="buck_button:" destination="ZBj-UE-9hm" eventType="touchUpInside" id="QJL-pv-pqp"/>
+                                    <action selector="todayButton:" destination="u8E-85-YwZ" eventType="touchUpInside" id="Blt-yw-nhE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -169,13 +235,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="buck_button" destination="uaQ-c4-QXq" id="1Kw-gQ-uwW"/>
                         <outlet property="calendar" destination="0XM-Sf-avO" id="SCw-Q4-J9G"/>
+                        <outlet property="labelDate" destination="waq-bj-hOL" id="mQ7-do-OLY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tg-zy-mdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="254" y="-152"/>
+            <point key="canvasLocation" x="194" y="-175"/>
         </scene>
         <!--Select Level View Controller-->
         <scene sceneID="9km-NV-6sW">
@@ -210,7 +276,7 @@
                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="levelButtonActionWithSender:" destination="ZBj-UE-9hm" eventType="touchUpInside" id="EGU-fE-Lh3"/>
+                                    <segue destination="or3-an-quY" kind="presentation" id="jOx-j8-Kvs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dR-ca-tKW">
@@ -229,7 +295,7 @@
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="buck_button:" destination="ZBj-UE-9hm" eventType="touchUpInside" id="zTC-rG-oKy"/>
+                                    <action selector="buckButton:" destination="ZBj-UE-9hm" eventType="touchUpInside" id="HV4-qv-FTh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz3-UQ-DwU">
@@ -239,19 +305,10 @@
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="日にち">
-                                            <attributes>
-                                                <font key="NSFont" size="36" name="HiraginoSans-W3"/>
-                                                <font key="NSOriginalFont" size="36" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <attributedString key="attributedTitle"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="u8E-85-YwZ" kind="presentation" id="Qck-6O-2c7"/>
+                                    <segue destination="u8E-85-YwZ" kind="presentation" identifier="toCalenderViewController" id="Qck-6O-2c7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -259,8 +316,7 @@
                         <color key="backgroundColor" red="0.792156862745098" green="0.91764705882352937" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="buck_button" destination="1dR-ca-tKW" id="kjF-Sa-nxz"/>
-                        <segue destination="lyZ-3A-hbC" kind="presentation" identifier="toQuizVC" id="44L-KP-lh9"/>
+                        <outlet property="display_date" destination="fz3-UQ-DwU" id="oLW-kT-VSR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xj-oI-dMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -275,18 +331,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLl-Pp-30X">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLl-Pp-30X">
                                 <rect key="frame" x="156.66666666666666" y="114" width="77" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmG-hA-C5D">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmG-hA-C5D">
                                 <rect key="frame" x="20" y="300" width="350" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="lRM-Ip-Sj2"/>
-                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -302,12 +357,10 @@
                                     <action selector="shareButtonAction:" destination="Jv3-kY-Bbm" eventType="touchUpInside" id="h02-jU-uH5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TV-FS-Dm7">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TV-FS-Dm7">
                                 <rect key="frame" x="20" y="410" width="350" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Hl1-8i-zcY"/>
-                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -326,16 +379,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t6d-lQ-knu"/>
                         <color key="backgroundColor" red="0.792156862745098" green="0.91764705882352937" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="8TV-FS-Dm7" firstAttribute="top" secondItem="zmG-hA-C5D" secondAttribute="bottom" constant="50" id="46U-b1-X5P"/>
-                            <constraint firstItem="zmG-hA-C5D" firstAttribute="leading" secondItem="t6d-lQ-knu" secondAttribute="leading" constant="20" id="6n1-xu-Wrq"/>
-                            <constraint firstItem="t6d-lQ-knu" firstAttribute="trailing" secondItem="8TV-FS-Dm7" secondAttribute="trailing" constant="20" id="7Lf-TF-Byl"/>
-                            <constraint firstItem="8TV-FS-Dm7" firstAttribute="leading" secondItem="t6d-lQ-knu" secondAttribute="leading" constant="20" id="KVA-d3-5EX"/>
-                            <constraint firstItem="t6d-lQ-knu" firstAttribute="trailing" secondItem="zmG-hA-C5D" secondAttribute="trailing" constant="20" id="LIc-vD-bX4"/>
-                            <constraint firstItem="zmG-hA-C5D" firstAttribute="top" secondItem="vLl-Pp-30X" secondAttribute="bottom" constant="150" id="LN9-yx-05q"/>
-                            <constraint firstItem="vLl-Pp-30X" firstAttribute="top" secondItem="t6d-lQ-knu" secondAttribute="top" constant="70" id="Lzw-6O-VvF"/>
-                            <constraint firstItem="vLl-Pp-30X" firstAttribute="centerX" secondItem="x05-oG-JDb" secondAttribute="centerX" id="pJe-Yq-QEj"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="returnTopButton" destination="8TV-FS-Dm7" id="umy-HQ-06x"/>
@@ -345,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1W-gJ-ofz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="503"/>
+            <point key="canvasLocation" x="1558" y="503"/>
         </scene>
     </scenes>
     <resources>

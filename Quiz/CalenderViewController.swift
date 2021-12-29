@@ -12,13 +12,14 @@ import CalculateCalendarLogic
 
 class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance{
 
-    @IBOutlet weak var buck_button: UIButton!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var labelDate: UILabel!
+    
+    var resultHandler: ((String) -> Void)?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         calendar.calendarWeekdayView.weekdayLabels[0].text = "日"
         calendar.calendarWeekdayView.weekdayLabels[1].text = "月"
         calendar.calendarWeekdayView.weekdayLabels[2].text = "火"
@@ -26,11 +27,8 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         calendar.calendarWeekdayView.weekdayLabels[4].text = "木"
         calendar.calendarWeekdayView.weekdayLabels[5].text = "金"
         calendar.calendarWeekdayView.weekdayLabels[6].text = "土"
-        // デリゲートの設定
         self.calendar.dataSource = self
         self.calendar.delegate = self
-        
-        print("aaaaa")
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +92,35 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         return nil
     }
     
-    @IBAction func buck_button(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true)
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
+        let tmpDate = Calendar(identifier: .gregorian)
+        let year = tmpDate.component(.year, from: date)
+        let month = tmpDate.component(.month, from: date)
+        let day = tmpDate.component(.day, from: date)
+        labelDate.text = "\(year)/\(month)/\(day)"
+    }
+    
+    @IBAction func buckButton(_ sender: Any) {
+        guard let text = self.labelDate.text else { return }
+
+        // 用意したクロージャに関数がセットされているか確認する
+        if let handler = self.resultHandler {
+            // 入力値を引数として渡された処理の実行
+            handler(text)
+        }
+        print("CalenderViewController:\(text)")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func todayButton(_ sender: Any) {
+        let date = Date()
+        let formatter_date = DateFormatter()
+        formatter_date.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy年MM月dd日", options: 0, locale: Locale(identifier: "ja_JP"))
+        formatter_date.timeZone = TimeZone(identifier:  "Asia/Tokyo")
+        
+        if let handler = self.resultHandler {
+            handler((formatter_date.string(from: date)))
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 }

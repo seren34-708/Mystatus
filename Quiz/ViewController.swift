@@ -36,4 +36,17 @@ class ViewController: UIViewController {
         formatter_time.timeZone = TimeZone(identifier:  "Asia/Tokyo")
         current_time.text = (formatter_time.string(from: date))
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         
+        // ②Segueの識別子確認
+        if segue.identifier == "toDate" {
+ 
+            // ③遷移先ViewCntrollerの取得
+            let nextView = segue.destination as! SelectLevelViewController
+ 
+            // ④値の設定
+            nextView.argString = current_date.text!
+        }
+    }
 }
