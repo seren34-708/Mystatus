@@ -1,10 +1,3 @@
-//
-//  CalenderViewController.swift
-//  Quiz
-//
-//  Created by matuda naoya on 2021/12/26.
-//
-
 import UIKit
 import FSCalendar
 import CalculateCalendarLogic
@@ -16,6 +9,11 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     @IBOutlet weak var labelDate: UILabel!
     
     var resultHandler: ((String) -> Void)?
+    var display_date: String?
+    var chooseYear: Int?
+    var chooseMonth: Int?
+    var chooseDate: Int?
+    var selection: String?
     
     
     override func viewDidLoad() {
@@ -29,11 +27,15 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         calendar.calendarWeekdayView.weekdayLabels[6].text = "土"
         self.calendar.dataSource = self
         self.calendar.delegate = self
+                
+        let chooseCalender = Calendar.current
+        let selectDate = chooseCalender.date(from: DateComponents(year: chooseYear, month: chooseMonth, day: chooseDate))
+        calendar.select(selectDate)
+        labelDate.text = selection
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
@@ -92,6 +94,7 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         return nil
     }
     
+    // 選択された日付を取得
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
         let tmpDate = Calendar(identifier: .gregorian)
         let year = tmpDate.component(.year, from: date)
@@ -100,18 +103,18 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         labelDate.text = "\(year)/\(month)/\(day)"
     }
     
+    // 戻るボタン
     @IBAction func buckButton(_ sender: Any) {
         guard let text = self.labelDate.text else { return }
 
-        // 用意したクロージャに関数がセットされているか確認する
         if let handler = self.resultHandler {
-            // 入力値を引数として渡された処理の実行
             handler(text)
         }
         print("CalenderViewController:\(text)")
         self.dismiss(animated: true, completion: nil)
     }
     
+    // 今日ボタン
     @IBAction func todayButton(_ sender: Any) {
         let date = Date()
         let formatter_date = DateFormatter()

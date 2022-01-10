@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Quiz
-//
-//  Created by matuda naoya on 2021/10/02.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -25,7 +18,6 @@ class ViewController: UIViewController {
     
     @objc func timecheck(){
         let date = Date()
-        
         let formatter_date = DateFormatter()
         formatter_date.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy年MM月dd日", options: 0, locale: Locale(identifier: "ja_JP"))
         formatter_date.timeZone = TimeZone(identifier:  "Asia/Tokyo")
@@ -37,15 +29,10 @@ class ViewController: UIViewController {
         current_time.text = (formatter_time.string(from: date))
     }
     
+    // display_dateに今日の日付を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         
-        // ②Segueの識別子確認
         if segue.identifier == "toDate" {
- 
-            // ③遷移先ViewCntrollerの取得
             let nextView = segue.destination as! SelectLevelViewController
- 
-            // ④値の設定
             nextView.argString = current_date.text!
         }
     }
