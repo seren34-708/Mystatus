@@ -130,8 +130,8 @@
                                 <rect key="frame" x="0.0" y="67" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="Z9E-cQ-vBU">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" id="9XO-ZN-2HI">
+                                    <navigationItem title="アクティビティ" id="Z9E-cQ-vBU">
+                                        <barButtonItem key="rightBarButtonItem" title="＋" id="9XO-ZN-2HI">
                                             <connections>
                                                 <action selector="addBtnAction:" destination="or3-an-quY" id="740-cf-Zxx"/>
                                             </connections>
