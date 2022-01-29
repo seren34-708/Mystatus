@@ -110,7 +110,6 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         if let handler = self.resultHandler {
             handler(text)
         }
-        print("CalenderViewController:\(text)")
         self.dismiss(animated: true, completion: nil)
     }
     
