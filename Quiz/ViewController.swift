@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @objc func timecheck(){
         let date = Date()
         let formatter_date = DateFormatter()
-        formatter_date.dateFormat = DateFormatter.dateFormat(fromTemplate: "MM月dd日", options: 0, locale: Locale(identifier: "ja_JP"))
+        formatter_date.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy年MM月dd日", options: 0, locale: Locale(identifier: "ja_JP"))
         formatter_date.timeZone = TimeZone(identifier:  "Asia/Tokyo")
         current_date.text = (formatter_date.string(from: date))
         
