@@ -10,11 +10,19 @@ class RecordTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("outputValue:"+outputValue)
         activityBtn.setTitle(outputValue, for: .normal)
     }
     
     @IBAction func backButton(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
+    }
+    
+    func test (){
+        print("test:"+outputValue)
+
+        activityBtn.setTitle(outputValue, for: .normal)
+
     }
     
 }

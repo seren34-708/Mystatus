@@ -1,6 +1,6 @@
 import UIKit
 
-class InputViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class InputViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var test: UILabel!
@@ -16,46 +16,12 @@ class InputViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = self.storyboard!
-//
-////        selectedText = todoList[indexPath.row]
-////        let next = storyboard.instantiateViewController(withIdentifier: "RecordTimeViewController") as! RecordTimeViewController
-////        next.outputValue = selectedText
-////        performSegue(withIdentifier: "RecordTimeViewController", sender: nil)
-////        test.text = selectedText
-////        self.present(next, animated: true)
-////
-//        test.text = todoList[indexPath.row]
-//        guard let next = storyboard.instantiateViewController(identifier: "RecordTimeViewController") as? RecordTimeViewController else { return }
-//        next.outputValue = todoList[indexPath.row]
-//        self.performSegue(withIdentifier: "RecordTimeViewController", sender: nil)
-//    }
-    
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, for segue: UIStoryboardSegue, sender: Any?){
-//        print(todoList[indexPath.row])
-//        selectedText = todoList[indexPath.row]
-//        test.text = selectedText
-//        let next = segue.destination as? RecordTimeViewController
-//        next?.outputValue = selectedText
-//        performSegue(withIdentifier: "RecordTimeViewController", sender: nil)
-//    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        selectedText = todoList[indexPath.row]
-        print("1:"+selectedText)
+    @IBAction func backButton(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        test.text = selectedText
-        let next = segue.destination as? RecordTimeViewController
-        next?.outputValue = selectedText
-        print("2:"+selectedText)
-    }
+}
     
+extension InputViewController: UITableViewDataSource {
 
     //UITableViewDataSource　リストのカウント
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,9 +64,34 @@ class InputViewController: UIViewController, UITableViewDelegate, UITableViewDat
             userDefaults.set(todoList, forKey: "todoList")
         }
     }
+}
+
+extension InputViewController: UITableViewDelegate {
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//            // segueのIDを確認して特定のsegueのときのみ動作させる
+//            if segue.identifier == "RecordTimeViewController" {
+//                // 2. 遷移先のViewControllerを取得
+//                let next = segue.destination as? RecordTimeViewController
+//                // 3. １で用意した遷移先の変数に値を渡す
+//                next?.outputValue = todoList[indexPath.row]
+//            }
+//        }
     
-    
-    @IBAction func backButton(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        print("todoList"+todoList[indexPath.row])
+        let storyboard = self.storyboard!
+        let next = storyboard.instantiateViewController(withIdentifier: "RecordTimeViewController") as! RecordTimeViewController
+        next.outputValue = todoList[indexPath.row]
+        
+        self.dismiss(animated: true) {
+            print("aaaa")
+            self.present(next, animated: true)
+        }
+        
+//        performSegue(withIdentifier: "RecordTimeViewController", sender: next)
+//        super.present(next, animated: true)
+//        self.present(next, animated: true)
     }
 }
