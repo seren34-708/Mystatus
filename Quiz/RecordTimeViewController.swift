@@ -1,18 +1,18 @@
-//
-//  RecordTimeViewController.swift
-//  Quiz
-//
-//  Created by matuda naoya on 2022/01/29.
-//
-
 import UIKit
 
 class RecordTimeViewController: UIViewController {
 
+    @IBOutlet weak var activityBtn: UIButton!
+    
+    var outputValue : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        activityBtn.setTitle(outputValue, for: .normal)
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
     }
     
 }

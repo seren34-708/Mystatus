@@ -120,7 +120,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="fmm-qG-QYE" kind="presentation" id="d8j-h8-NDb"/>
+                                            <segue destination="fmm-qG-QYE" kind="presentation" identifier="RecordTimeViewController" id="d8j-h8-NDb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -162,45 +162,91 @@
                                     <action selector="backButton:" destination="or3-an-quY" eventType="touchUpInside" id="FVX-Dt-ZZl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="070-v4-g2v">
+                                <rect key="frame" x="134" y="139" width="240" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="52q-gP-elA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="IpL-cw-8Xk" id="xSx-DY-69p"/>
+                        <outlet property="test" destination="070-v4-g2v" id="Dit-X0-8zL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMD-Ok-JAY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="248" y="-38"/>
+            <point key="canvasLocation" x="247.69230769230768" y="-38.388625592417057"/>
         </scene>
         <!--Record Time View Controller-->
         <scene sceneID="c4g-I6-hmA">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="fmm-qG-QYE" customClass="RecordTimeViewController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordTimeViewController" modalPresentationStyle="fullScreen" id="fmm-qG-QYE" customClass="RecordTimeViewController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ubI-4t-mzR">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メモ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elz-F3-VnG">
-                                <rect key="frame" x="155" y="175" width="81" height="48"/>
+                                <rect key="frame" x="53" y="398" width="81" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="OP2-FV-SMs">
-                                <rect key="frame" x="0.0" y="326" width="390" height="162"/>
+                                <rect key="frame" x="17" y="581" width="276" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="-31654800">
                                     <!--1999-12-31 15:00:00 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="ain_JP"/>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nem-T6-1fw">
+                                <rect key="frame" x="17" y="118" width="81" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="戻る">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="HiraginoSans-W6"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButton:" destination="or3-an-quY" eventType="touchUpInside" id="3IE-S4-RaV"/>
+                                    <action selector="backButton:" destination="fmm-qG-QYE" eventType="touchUpInside" id="bLV-8Y-nnn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNY-LO-LdV">
+                                <rect key="frame" x="53" y="212" width="252" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Button">
+                                            <attributes>
+                                                <font key="NSFont" size="26" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oNp-Mx-hxW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="activityBtn" destination="tNY-LO-LdV" id="DjS-ZV-ib1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5M-88-G7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
