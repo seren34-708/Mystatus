@@ -33,20 +33,27 @@ class InputViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //    }
     
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, for segue: UIStoryboardSegue, sender: Any?){
+//        print(todoList[indexPath.row])
+//        selectedText = todoList[indexPath.row]
+//        test.text = selectedText
+//        let next = segue.destination as? RecordTimeViewController
+//        next?.outputValue = selectedText
+//        performSegue(withIdentifier: "RecordTimeViewController", sender: nil)
+//    }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         selectedText = todoList[indexPath.row]
-//        test.text = selectedText
+        print("1:"+selectedText)
     }
-    
-//    RecordTimeViewControllerへ値渡し
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         test.text = selectedText
-
-        if segue.identifier == "RecordTimeViewController" {
-            let next = segue.destination as? RecordTimeViewController
-            next?.outputValue = selectedText
-        }
+        let next = segue.destination as? RecordTimeViewController
+        next?.outputValue = selectedText
+        print("2:"+selectedText)
     }
     
 
